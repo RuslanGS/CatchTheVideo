@@ -9,7 +9,7 @@ faceCascade = cv2.CascadeClassifier(cascPath)
 video_capture = cv2.VideoCapture(0)
 
 while True:
-    # Capture frame-by-frame
+    # Скриним
     ret, frame = video_capture.read()
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -22,11 +22,11 @@ while True:
         flags=cv2.CASCADE_SCALE_IMAGE
     )
 
-    # Draw a rectangle around the faces
+    # Квадрат вокруг лица
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-    # Display the resulting frame
+    # Вывод
     cv2.imshow('Video', frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
